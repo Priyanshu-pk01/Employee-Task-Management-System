@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 
-const Login = () => {
+const Login = ({LoginHandeler}) => {
   const [email, setEmail] = useState('')
-  const [pass, setPass] = useState('')
+  const [password, setPassword] = useState('')
   
-
+ 
 
   const SubmitHandeler =(e)=>{
       e.preventDefault()
-      console.log(`The Mail is:${email}`)
-      console.log(`The Password is:${pass}`)
+      LoginHandeler(email,password )
+    
 
       setEmail("")
-      setPass("")
+      setPassword("")
       
 
     }
@@ -27,8 +27,8 @@ const Login = () => {
               setEmail(e.target.value)
             }} type='email' required  className="border-2 border-emerald-600 text-white  rounded-full px-6 py-2
              placeholder:text-gray-400 outline-none text-xl bg-transparent text-center w-full " placeholder='Enter Email ' />
-            <input value={pass} onChange={(e)=>{
-              setPass(e.target.value)
+            <input value={password} onChange={(e)=>{
+              setPassword(e.target.value)
             }} type='password' placeholder='Password'className='text-white  border-2 border-emerald-600  rounded-full  px-6 py-2
              placeholder:text-gray-400 outline-none text-xl bg-transparent m-5 text-center w-full '/>
             <button  type='submit'
